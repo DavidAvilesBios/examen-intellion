@@ -1,0 +1,80 @@
+<div class="card m-3">
+  <h5 class="card-header">Nuevo Prospecto</h5>
+  <div class="card-body">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="form-row">
+              <div class="form-group col-4">
+                  <label>Nombre</label>
+                  <input type="text" formControlName="nombre" class="form-control" [ngClass]="{ 'is-invalid': registerForm.controls.nombre.invalid && registerForm.controls.nombre.touched}" />
+                  <div *ngIf="registerForm.controls.nombre.invalid && registerForm.controls.nombre.touched" class="invalid-feedback">
+                      <div *ngIf="registerForm.controls.nombre.invalid && registerForm.controls.nombre.touched">EL nombre es requerido</div>
+                  </div>
+              </div>
+              <div class="form-group col-4">
+                  <label>Primer Apellido</label>
+                  <input type="text" formControlName="apellido" class="form-control" [ngClass]="{ 'is-invalid': registerForm.controls.apellido.invalid && registerForm.controls.apellido.touched}" />
+                  <div *ngIf=" registerForm.controls.apellido.invalid && registerForm.controls.apellido.touched" class="invalid-feedback">
+                      <div *ngIf=" registerForm.controls.apellido.invalid && registerForm.controls.apellido.touched">El apellido es requerido</div>
+                  </div>
+              </div>
+
+              <div class="form-group col-4">
+                <label>Segundo Apellido</label>
+                <input type="text" formControlName="segundoApellido" class="form-control" [ngClass]="{ 'is-invalid': registerForm.controls.segundoApellido.invalid && registerForm.controls.segundoApellido.touched }" />
+                <div *ngIf="registerForm.controls.segundoApellido.invalid && registerForm.controls.segundoApellido.touched" class="invalid-feedback">
+                    <div *ngIf="f.segundoApellido.errors.required">Es requerido este campo</div>
+                </div>
+            </div>
+          </div>
+     
+          <div class="form-row">
+              <div class="form-group col">
+                  <label>Calle</label>
+                  <input type="text" formControlName="calle" class="form-control" [ngClass]="{ 'is-invalid': registerForm.controls.calle.invalid && registerForm.controls.calle.touched }" />
+                  <div *ngIf="registerForm.controls.calle.invalid && registerForm.controls.calle.touched" class="invalid-feedback">
+                      <div *ngIf="f.calle.errors.required">La calle es requerida</div>
+                  </div>
+              </div>
+            
+
+              <div class="form-group col">
+                <label>Colonia</label>
+                <input type="text" formControlName="colonia" class="form-control" [ngClass]="{ 'is-invalid': registerForm.controls.colonia.invalid && registerForm.controls.colonia.touched }" />
+                <div *ngIf="registerForm.controls.colonia.invalid && registerForm.controls.colonia.touched" class="invalid-feedback">
+                    <div *ngIf="f.colonia.errors.required">La Colonia es requerida</div>
+                </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col">
+              <label>Numero Casa</label>
+              <input type="text" formControlName="numeroCasa" class="form-control" [ngClass]="{ 'is-invalid': registerForm.controls.numeroCasa.invalid && registerForm.controls.numeroCasa.touched }" />
+              <div *ngIf="registerForm.controls.numeroCasa.invalid && registerForm.controls.numeroCasa.touched" class="invalid-feedback">
+                  <div *ngIf="f.numeroCasa.errors.required">El numero de la casa es obligatorio</div>
+              </div>
+          </div>
+            <div class="form-group col">
+                <label>Codigo Postal</label>
+                <input type="text" formControlName="codigoPostal" class="form-control" [ngClass]="{ 'is-invalid': registerForm.controls.codigoPostal.invalid && registerForm.controls.codigoPostal.touched }" />
+                <div *ngIf="registerForm.controls.codigoPostal.invalid && registerForm.controls.codigoPostal.touched" class="invalid-feedback">
+                    <div *ngIf="f.codigoPostal.errors.required">El codigo postal es obligatorio</div>
+                    <div *ngIf="f.codigoPostal.errors.minlength">El codigo postal debe de tener al menos 5 caracteres</div>
+                </div>
+            </div>
+            <div class="form-group col">
+              <label>RFC</label>
+              <input type="text" formControlName="rfc" class="form-control" [ngClass]="{ 'is-invalid': registerForm.controls.rfc.invalid && registerForm.controls.rfc.touched }" />
+              <div *ngIf="registerForm.controls.rfc.invalid && registerForm.controls.rfc.touched" class="invalid-feedback">
+                  <div *ngIf="f.rfc.errors.required">El rfc es obligatorio</div>
+                  <div *ngIf="f.rfc.errors.minlength">El RFC debe de tener al menos 12 caracteres</div>
+              </div>
+          </div>
+        </div>
+          <div class="text-center">
+              <button class="btn btn-primary mr-1">Registrar</button>
+              <button class="btn btn-secondary" type="reset" (click)="onReset()">Borrar</button>
+          </div>
+      </form>
+  </div>
+</div>

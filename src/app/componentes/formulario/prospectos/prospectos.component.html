@@ -1,0 +1,16 @@
+<div class="container">
+
+<button (click)="nuevoProspecto()" class="btn btn-primary m-1">Nuevo Prospecto</button>
+<button (click)="editarProspecto()" class="btn btn-primary m-1">Editar Prospecto</button>
+<button (click)="deleteProspecto()" class="btn btn-primary m-1">Eliminar Prospecto</button>
+<ag-grid-angular
+    #agGrid
+    style="width: 100%; height: 500px;"
+    class="ag-theme-alpine"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    rowSelection="multiple"
+>
+</ag-grid-angular>
+
+</div>
